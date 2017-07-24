@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   flexDirectionColumn: {
-    width: 300,
     marginTop: -18,
+    marginHorizontal: 15,
     flexDirection: 'column',
   },
   calloutSquare: {
