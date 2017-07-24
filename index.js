@@ -96,7 +96,11 @@ export default class MJCallout extends Component {
 
   render() {
     return (
-      <View>
+      <View onLayout={event => {
+          if (this.props.onLayout) {
+            this.props.onLayout(event);
+          }
+        }}>
         {this.renderCallOutSubviews()}
       </View>
     )
