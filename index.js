@@ -46,7 +46,7 @@ export default class MJCallout extends Component {
 
     const triangleStyle = [
       styles.calloutTriangle,
-      { borderBottomColor: this.props.buttonColor && this.props.arrowDirection === 'down' ? this.props.buttonColor : this.props.backgroundColor },
+      { borderBottomColor: this.props.buttonTitle && this.props.buttonColor && this.props.arrowDirection === 'down' ? this.props.buttonColor : this.props.backgroundColor },
     ];
 
     const calloutStyle = [
