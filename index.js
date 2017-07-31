@@ -26,6 +26,18 @@ export default class MJCallout extends Component {
     )
   }
 
+  renderButton = () => {
+    const { buttonTitle, buttonColor } = this.props;
+
+    return (
+      <View style={[styles.button, { backgroundColor: buttonColor }]}>
+        <Text style={styles.buttonTitle}>
+          {`${buttonTitle}`}
+        </Text>
+      </View>
+    )
+  }
+
   renderCallOutSubviews = () => {
     const containerStyle = [
       styles.container,
@@ -34,7 +46,7 @@ export default class MJCallout extends Component {
 
     const triangleStyle = [
       styles.calloutTriangle,
-      { borderBottomColor: this.props.backgroundColor },
+      { borderBottomColor: this.props.buttonColor && this.props.arrowDirection === 'down' ? this.props.buttonColor : this.props.backgroundColor },
     ];
 
     const calloutStyle = [
@@ -77,6 +89,7 @@ export default class MJCallout extends Component {
           <View style={triangleStyle}/>
           <View style={calloutStyle}>
             {this.renderCallOutInner()}
+            {this.props.buttonTitle && this.renderButton()}
           </View>
         </Animated.View>
       );
@@ -85,6 +98,7 @@ export default class MJCallout extends Component {
         <Animated.View style={containerStyle}>
           <View style={calloutStyle}>
             {this.renderCallOutInner()}
+            {this.props.buttonTitle && this.renderButton()}
           </View>
           <View style={triangleStyle}/>
         </Animated.View>
@@ -159,6 +173,17 @@ const styles = StyleSheet.create({
   },
   labelHeader : {
     margin: 20,
+    color: 'white',
+    fontWeight: '500',
+  },
+  button: {
+    height: 48,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+  },
+  buttonTitle: {
+    fontSize: 17,
     color: 'white',
     fontWeight: '500',
   },
