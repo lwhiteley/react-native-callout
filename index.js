@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8,
+    zIndex: -10,
   },
   buttonTitle: {
     fontSize: 17,
